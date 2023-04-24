@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import { BrowserRouter, Routes, Route ,Navigate } from "react-router-dom";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import PrivateLayout from './router/PrivateLayout';
+import LoginPage from './page/LoginPage';
+import ForgotPasswordPage from './page/ForgotPasswordPage';
 
-function App() {
+
+const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
+        <Route path='/login' element={<LoginPage setLoggedIn={setLoggedIn}/>}/>
+        <Route path='/' element={loggedIn ? <PrivateLayout /> : <Navigate to="/login" />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
