@@ -1,9 +1,12 @@
-import React from 'react';
-import App from './App';
-import { createRoot } from 'react-dom/client';
-import "./fonts/GoogleSansTTF/GoogleSans-Bold.ttf"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
 
-const root = document.getElementById('root');
-createRoot(root).render(<App />);
-
-
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
