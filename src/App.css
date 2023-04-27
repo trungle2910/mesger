@@ -1,6 +1,6 @@
 @font-face {
   font-family: "GoogleSans";
-  src: local(GoogleSans) url("./fonts/GoogleSansTTF/GoogleSans-Bold.ttf");
+  src: url("./fonts/GoogleSansTTF/GoogleSans-Regular.ttf");
 }
 body {
   font-family: GoogleSans !important;
@@ -74,13 +74,17 @@ body {
   letter-spacing: .2px ;
   line-height: normal ;
   margin-top: 14px;
-  background-color: RGB(180, 195, 225);
+  background-color: #446ab5;
   color: rgb(255, 255, 255);
   min-width: 100px;
   width: 100%;
   user-select: none;
   padding: 10px 0;
   border: none;
+}
+.login-btn:disabled{
+  background-color: RGB(180, 195, 225);
+  color: rgb(255, 255, 255);
 }
 .login-with-social-btn{
   display: flex;
@@ -124,7 +128,12 @@ body {
 .login-form label{
   color: #8991a4;
 }
-
+.modal-ok{
+  color: #446ab5;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
 
 /*                */
 
@@ -134,7 +143,9 @@ body {
 .instruction{
   color: #8991a4;
   white-space: pre-line;
-
+}
+.instruction p{
+  margin-bottom: 20px;
 }
 .support-email{
   color: #446ab5;
